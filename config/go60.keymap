@@ -415,7 +415,14 @@ behaviors {
         tapping-term-ms = <280>;
         quick-tap-ms = <175>;
         bindings = <&kp>, <&kp>;
-        hold-trigger-key-positions = < 6 7 8 9 0 -  Y U I O P \  H J K L ; '  N M , . /  [ ] >; // List of keys on the right side of the keyboard
+        hold-trigger-key-positions =
+             6  7  8  9 10 11
+            18 19 20 21 22 23
+            30 31 32 33 34 35
+            42 43 44 45 46 47
+            51 52 53
+            57 58 59
+        >;
         hold-trigger-on-release;
     };
     hmr: home_row_mod_right {
@@ -426,11 +433,18 @@ behaviors {
         tapping-term-ms = <280>;
         quick-tap-ms = <175>;
         bindings = <&kp>, <&kp>;
-        hold-trigger-key-positions = < = 1 2 3 4 5  Q W E R T  A S D F G  Z X C V B  ` >; // List of keys on the left side of the keyboard
+        hold-trigger-key-positions =
+             0  1  2  3  4  5
+            12 13 14 15 16 17
+            24 25 26 27 28 29
+            36 37 38 39 40 41
+            48 49 50
+            54 55 56
+        >;
         hold-trigger-on-release;
     };
-    };
 
+};
 };
 
 /* Automatically generated macro definitions */
