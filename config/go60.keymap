@@ -479,7 +479,7 @@ behaviors {
             bindings = <
             &kp EQUAL  &kp N1     &kp N2   &kp N3    &kp N4  &kp N5   &kp N6    &kp N7     &kp N8    &kp N9    &kp N0         &kp MINUS
               &kp TAB   &kp Q      &kp W    &kp E     &kp R   &kp T &kp Y     &kp U      &kp I     &kp O     &kp P          &kp BSLH
-        &mt LCTRL ESC   &hml A      &hml S    &hml D     &hml F   &kp G &kp H     &hmr J      &hmr K     &hmr L  &hmr SEMI     &mt LSHFT SQT
+        &mt LCTRL ESC   &hml A LGUI &hml S LALT &hml D LSHFT &hml F LCTRL &kp G &kp H     &hmr J RCTRL &hmr K RSHFT &hmr L LALT  &hmr SEMI RGUI &mt LSHFT SQT
  &magic LAYER_Magic 0   &kp Z      &kp X    &kp C     &kp V   &kp B &kp N     &kp M  &kp COMMA   &kp DOT  &kp FSLH  &td_LAYER_Keypad
   &kp GRAVE  &kp DEL  &kp BSPC   &kp LGUI   &kp LBKT  &kp RBKT &td_LAYER_SymbolNav  &mt LSHFT SPACE  &mt LGUI RET
   &alt_layer_key LAYER_RightAltPointer RET  &ctrl_layer_key LAYER_RightCtrlPointer SPACE  &mt RALT BSPC
