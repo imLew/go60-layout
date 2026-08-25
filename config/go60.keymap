@@ -447,6 +447,11 @@ behaviors {
 };
 };
 
+/* Quick tap to hold down tap key in mod-tap keys */
+&mt {
+  quick-tap-ms = <150>;
+};
+
 /* Automatically generated macro definitions */
 / {
     macros {
