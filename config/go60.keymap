@@ -189,6 +189,21 @@
 
 /* Custom Device-tree */
 
+#include <dt-bindings/zmk/rgb_colors.h>
+
+&{/underglow-layer} {
+    lower {
+        layer-id = <LAYER_Base>;
+        bindings = <
+    &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF
+    &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF
+    &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF
+    &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF
+                                &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00                                &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF
+                                              &ug 0x00FF1F  &ug 0x00FF34  &ug 0x00FF4A    &ug 0x00FF60  &ug 0x00FF75  &ug 0x00FF8B
+        >;
+    };
+};
 
 /* Input Listeners */
 &cirque_rh_listener {
