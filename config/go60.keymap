@@ -412,6 +412,7 @@
 
 / {
 behaviors {
+
     hml: home_row_mod_left {
         compatible = "zmk,behavior-hold-tap";
         #binding-cells = <2>;
@@ -425,6 +426,7 @@ behaviors {
         >;
         hold-trigger-on-release;
     };
+
     hmr: home_row_mod_right {
         compatible = "zmk,behavior-hold-tap";
         #binding-cells = <2>;
@@ -445,6 +447,7 @@ behaviors {
         tapping-term-ms = <200>;
         bindings = <&kp ESC>, <&caps_word>;
     };
+
 };
 };
 
@@ -453,15 +456,6 @@ behaviors {
   quick-tap-ms = <150>;
 };
 
-/* Keyboard internal numlock. */
-/* The `LAYER_NumLock` is fully transparent and thus not a real layer, */
-/* instead it functions as a toggle value for the conditional layer behaviour. */
-/* This code block says that if and only if the `LAYER_Keypad` is active `LAYER_KeypadNumOn` */
-/* is also active. */
-/* Further if `LAYER_Keypad` and `LAYER_NumOff` are both active then `LAYER_KeypadNumOff` will */
-/* be active. */
-/* Since `LAYER_KeypadNumOff` is higher than `LAYER_KeypadNumOn` this means that `LAYER_NumOff` */
-/* decides whether we have a number in layer `LAYER_Keypad` or not. */
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -478,12 +472,6 @@ behaviors {
     };
 };
 
-/* Automatically generated macro definitions */
-/ {
-    macros {
-
-    };
-};
 
 /* Automatically generated behavior definitions */
 / {
