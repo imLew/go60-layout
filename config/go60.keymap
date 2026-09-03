@@ -143,9 +143,23 @@
   POS_RH_C1R4 POS_RH_C2R4 POS_RH_C3R4 POS_RH_C4R4 POS_RH_C5R4 POS_RH_C6R4 \
               POS_RH_C2R5 POS_RH_C3R5 POS_RH_C4R5
 
-#define THUMB_KEYS \
-  POS_LH_T1 POS_LH_T2 POS_LH_T3 \
+#define RIGHT_THUMB_KEYS \
   POS_RH_T1 POS_RH_T2 POS_RH_T3
+
+#define LEFT_THUMB_KEYS \
+  POS_LH_T1 POS_LH_T2 POS_LH_T3
+
+#define THUMB_KEYS \
+  LEFT_THUMB_KEYS \
+  RIGHT_THUMB_KEYS
+
+#define ALL_LEFT_KEYS \
+  LEFT_HAND_KEYS \
+  LEFT_THUMB_KEYS
+
+#define ALL_RIGHT_KEYS \
+  RIGHT_HAND_KEYS \
+  RIGHT_THUMB_KEYS
 
 /* Environment and metadata defines */
 #define KB_TYPE_GLOVE_80 1
@@ -155,14 +169,14 @@
 #define EDITOR_HOST_OS   'L'
 
 /* Automatically generated layer name defines */
-#define LAYER_Base 0
-#define LAYER_Keypad 1
-#define LAYER_SymbolNav 2
-#define LAYER_Magic 3
-#define LAYER_Factory 4
-#define LAYER_RightAltPointer 5
-#define LAYER_RightCtrlPointer 6
-
+#define LAYER_Base          0
+#define LAYER_Keypad        1
+#define LAYER_SymbolNav     2
+#define LAYER_Magic         3
+#define LAYER_KeypadNumOn   4
+#define LAYER_KeypadNumOff  5
+#define LAYER_NumOff        6
+#define LAYER_Factory       7
 /* To deal with the situation where there is no Lower layer, to keep &lower happy */
 #ifndef LAYER_Lower
 #define LAYER_Lower 0
@@ -192,17 +206,6 @@
 #include <dt-bindings/zmk/rgb_colors.h>
 
 &{/underglow-layer} {
-    /* lower { */
-    /*     layer-id = <LAYER_Base>; */
-    /*     bindings = < */
-    /* &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF */
-    /* &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF */
-    /* &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF */
-    /* &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF */
-    /*                             &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00                                &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF */
-    /*                                           &ug 0x00FF1F  &ug 0x00FF34  &ug 0x00FF4A    &ug 0x00FF60  &ug 0x00FF75  &ug 0x00FF8B */
-    /*     >; */
-    /* }; */
     base {
         bindings = <
             &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
@@ -223,7 +226,7 @@
                             &ug ___ &ug ___ &ug ___                                                                  &ug RED &ug ___ &ug ___
                                                     &ug ___ &ug ___ &ug ___                  &ug ___ &ug ___ &ug ___
             >;
-        layer-id = <LAYER_Keypad>;
+        layer-id = <LAYER_KeypadNumOn>;
     };
 };
 
@@ -237,7 +240,7 @@
 };
 
 &cirque_lh_listener {
-    input-processors = <&zip_xy_scaler 1 8>, <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>, <&zip_xy_to_scroll_mapper>, <&zip_click_to_right_click_mapper>;
+    input-processors = <&zip_xy_scaler 1 8>, <&zip_xy_to_scroll_mapper>, <&zip_click_to_right_click_mapper>;
     layer_Factory {
         layers = <LAYER_Factory>;
         input-processors = <&zip_xy_scaler 3 1>;
@@ -445,13 +448,7 @@ behaviors {
         quick-tap-ms = <175>;
         bindings = <&kp>, <&kp>;
         hold-trigger-key-positions = <
-          RIGHT_HAND_KEYS
-             /* 6  7  8  9 10 11 */
-            /* 18 19 20 21 22 23 */
-            /* 30 31 32 33 34 35 */
-            /* 42 43 44 45 46 47 */
-            /* 51 52 53 */
-            /* 57 58 59 */
+          ALL_RIGHT_KEYS
         >;
         hold-trigger-on-release;
     };
@@ -464,13 +461,7 @@ behaviors {
         quick-tap-ms = <175>;
         bindings = <&kp>, <&kp>;
         hold-trigger-key-positions = <
-          LEFT_HAND_KEYS
-             /* 0  1  2  3  4  5 */
-            /* 12 13 14 15 16 17 */
-            /* 24 25 26 27 28 29 */
-            /* 36 37 38 39 40 41 */
-            /* 48 49 50 */
-            /* 54 55 56 */
+          ALL_LEFT_KEYS
         >;
         hold-trigger-on-release;
     };
@@ -489,6 +480,31 @@ behaviors {
   quick-tap-ms = <150>;
 };
 
+/* Keyboard internal numlock. */
+/* The `LAYER_NumLock` is fully transparent and thus not a real layer, */
+/* instead it functions as a toggle value for the conditional layer behaviour. */
+/* This code block says that if and only if the `LAYER_Keypad` is active `LAYER_KeypadNumOn` */
+/* is also active. */
+/* Further if `LAYER_Keypad` and `LAYER_NumOff` are both active then `LAYER_KeypadNumOff` will */
+/* be active. */
+/* Since `LAYER_KeypadNumOff` is higher than `LAYER_KeypadNumOn` this means that `LAYER_NumOff` */
+/* decides whether we have a number in layer `LAYER_Keypad` or not. */
+/ {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        keypad_numlock_on {
+            if-layers = <LAYER_Keypad>;
+            then-layer = <LAYER_KeypadNumOn>;
+        };
+
+        keypad_numlock_off {
+            if-layers = <LAYER_Keypad LAYER_NumOff>;
+            then-layer = <LAYER_KeypadNumOff>;
+        };
+    };
+};
+
 /* Automatically generated macro definitions */
 / {
     macros {
@@ -502,21 +518,18 @@ behaviors {
 
         // Layer tap dance behaviors
 
-        ZMK_TD_LAYER(td_LAYER_Keypad, 1)
-        ZMK_TD_LAYER(td_LAYER_SymbolNav, 2)
+        ZMK_TD_LAYER(td_LAYER_Keypad, LAYER_Keypad)
+        ZMK_TD_LAYER(td_LAYER_SymbolNav, LAYER_SymbolNav)
 
     };
 };
 
-/* Automatically generated combos definitions */
 
-
-/* Automatically generated keymap */
 / {
     keymap {
         compatible = "zmk,keymap";
 
-
+// 0
         layer_Base {
             bindings = <
 &kp EQUAL            &kp N1       &kp N2       &kp N3        &kp N4  &kp N5             &kp N6    &kp N7       &kp N8    &kp N9    &kp N0         &kp MINUS
@@ -528,17 +541,19 @@ behaviors {
             >;
         };
 
+// 1
         layer_Keypad {
             bindings = <
-&none                &kp F1    &kp F2    &kp F3    &kp F4    &kp F5           &kp F6    &kp F7    &kp F8     &kp F9       &kp F10         &kp F11
-&trans               &none     &kp LC(X) &kp LC(C) &kp LC(V) &kp LS(LC(V))    &kp KP_N7 &kp KP_N8 &kp KP_N9  &kp KP_MINUS &kp KP_SLASH    &kp F12
-&trans               &kp LC(Y) &kp HOME  &kp UP    &kp END   &kp PG_UP        &kp KP_N4 &kp KP_N5 &kp KP_N6  &kp KP_PLUS  &kp KP_MULTIPLY &kp KP_NUM
-&magic LAYER_Magic 0 &kp LC(Z) &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_DN        &kp KP_N1 &kp KP_N2 &kp KP_N3  &kp KP_ENTER &kp EQUAL       &to LAYER_Base
-                                  &none     &trans     &trans                           &kp KP_N0 &kp KP_DOT &kp BSPC
-                                      &mo LAYER_SymbolNav  &trans  &trans     &trans  &trans  &kp KP_N0
+&none &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                           &kp F6     &kp F7  &kp F8            &kp F9             &kp F10               &kp F11
+&trans &none  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LS(LC(V))       &none      &none   &none      &kp KP_MINUS        &kp KP_SLASH               &kp F12
+&trans  &kp LC(Y)   &kp HOME &kp UP &kp END &kp PG_UP              &none      &none   &none       &kp KP_PLUS     &kp KP_MULTIPLY  &tog LAYER_NumOff
+&magic LAYER_Magic 0  &kp LC(Z)   &kp LEFT   &kp DOWN  &kp RIGHT   &kp PG_DN  &none   &none       &none      &kp KP_ENTER           &kp EQUAL      &to LAYER_Base
+                                      &none     &trans     &trans                   &none       &none          &kp BSPC
+                                                &mo LAYER_SymbolNav  &trans  &trans  &trans  &trans  &none
             >;
         };
 
+// 2
         layer_SymbolNav {
             bindings = <
               &kp INS      &kp F1    &kp F2    &kp F3        &kp F4        &kp F5  &kp F6      &kp F7           &kp F8         &kp F9          &kp F10    &kp F11
@@ -550,17 +565,55 @@ behaviors {
             >;
         };
 
+// 3
         layer_Magic {
             bindings = <
-  &bt BT_CLR     &kp C_BRI_DN     &kp C_BRI_UP       &kp C_PREV       &kp C_NEXT         &kp C_PP                                                  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP   &none   &none     &bt BT_CLR_ALL
- &bootloader  &rgb_ug RGB_SPI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_BRI  &rgb_ug RGB_TOG                                                       &none         &none         &none   &none   &none        &bootloader
-  &sys_reset  &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF                                                       &none         &none         &none   &none   &none         &sys_reset
-       &none            &none            &bt_0            &bt_1            &bt_2            &bt_3                                                       &none         &none         &none   &none   &none  &to LAYER_Factory
-                                  &out OUT_USB            &none            &none                                                                                      &none         &none   &none
-                                                                                                    &none   &none   &none   &none   &none   &none
+ &bt BT_CLR   &kp C_BRI_DN    &kp C_BRI_UP    &kp C_PREV      &kp C_NEXT      &kp C_PP            &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none &none &bt BT_CLR_ALL
+ &bootloader  &rgb_ug RGB_SPI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG     &none      &none        &none        &none &none &bootloader
+ &sys_reset   &rgb_ug RGB_SPD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF     &none      &none        &none        &none &none &sys_reset
+ &none        &none           &bt_0           &bt_1           &bt_2           &bt_3               &none      &none        &none        &none &none &to LAYER_Factory
+                                                       &out OUT_USB &none           &none           &none           &none           &none
+                                                       &none        &none           &none           &none           &none           &none
             >;
         };
 
+// 4
+layer_KeypadNumOn {
+    bindings = <
+    &trans  &trans  &trans  &trans  &trans  &trans                                                      &trans     &trans     &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                   &kp N7  &kp N8  &kp N9  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                   &kp N4  &kp N5  &kp N6  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                   &kp N1  &kp N2  &kp N3  &trans  &trans  &trans
+                    &trans  &trans  &trans                                                                      &kp N0  &kp DOT  &trans
+                                            &trans  &trans  &trans  &trans  &trans  &kp N0
+    >;
+};
+
+// 5
+layer_KeypadNumOff {
+    bindings = <
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans     &trans     &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                  &kp HOME     &kp UP  &kp PG_UP  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                  &kp LEFT      &none  &kp RIGHT  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                   &kp END   &kp DOWN  &kp PG_DN  &trans  &trans  &trans
+                    &trans  &trans  &trans                                                                       &kp INS    &kp DEL  &trans
+                                            &trans  &trans  &trans  &trans  &trans  &kp INS
+    >;
+};
+
+// 6
+layer_NumOff {
+    bindings = <
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+                    &trans  &trans  &trans                                                                    &trans  &trans  &trans
+                                            &trans  &trans  &trans  &trans  &trans  &trans
+    >;
+};
+
+// 7
         layer_Factory {
             bindings = <
  &kp N0  &kp N4  &kp N8  &kp N3  &kp N8  &kp N3                                                  &kp N3  &kp N8  &kp N3  &kp N8  &kp N4  &kp N0
@@ -572,27 +625,7 @@ behaviors {
             >;
         };
 
-        layer_RightAltPointer {
-            bindings = <
- &trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
-                 &trans  &trans  &trans                                                                  &trans  &trans  &trans
-                                                 &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
 
-        layer_RightCtrlPointer {
-            bindings = <
- &trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans
-                 &trans  &trans  &trans                                                                  &trans  &trans  &trans
-                                                 &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-        };
 
     };
 };
