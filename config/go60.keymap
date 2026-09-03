@@ -169,18 +169,28 @@
 #define EDITOR_HOST_OS   'L'
 
 /* Automatically generated layer name defines */
-#define LAYER_Base          0
-#define LAYER_Keypad        1
-#define LAYER_SymbolNav     2
-#define LAYER_Magic         3
-#define LAYER_KeypadNumOn   4
-#define LAYER_KeypadNumOff  5
-#define LAYER_NumOff        6
-#define LAYER_Factory       7
+#define LAYER_Base              0
+#define LAYER_NumSwitch         1
+#define LAYER_BaseRainbowSwitch 2
+#define LAYER_BaseRainbow       3
+#define LAYER_Keypad            4
+#define LAYER_SymbolNav         5
+#define LAYER_Magic             6
+#define LAYER_KeypadNumOn       7
+#define LAYER_KeypadNumOff      8
+#define LAYER_Factory           9
 /* To deal with the situation where there is no Lower layer, to keep &lower happy */
 #ifndef LAYER_Lower
 #define LAYER_Lower 0
 #endif
+
+#define EMPTY_KEYMAP \
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans \
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans \
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans \
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans \
+                    &trans  &trans  &trans                                                                    &trans  &trans  &trans \
+                                            &trans  &trans  &trans  &trans  &trans  &trans
 
 /* Generated input processors */
 / {
@@ -210,6 +220,18 @@
     base {
         layer-id = <LAYER_Base>;
         bindings = <
+            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                            &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___
+                                                    &ug ___ &ug ___ &ug ___                  &ug ___ &ug ___ &ug ___
+            >;
+    };
+
+    base_rainbow {
+        layer-id = <LAYER_BaseRainbowSwitch>;
+        bindings = <
     &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF
     &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF
     &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF
@@ -219,20 +241,20 @@
         >;
     };
 
-    /* base { */
-    /*     bindings = < */
-    /*         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ */
-    /*         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ */
-    /*         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ */
-    /*         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ */
-    /*                         &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___ */
-    /*                                                 &ug ___ &ug ___ &ug ___                  &ug ___ &ug ___ &ug ___ */
-    /*         >; */
-    /* lower { */
-    /*     layer-id = <LAYER_Base>; */
-    /* }; */
+    keypad_numlock_off {
+        layer-id = <LAYER_KeypadNumOff>;
+        bindings = <
+            &ug ___ &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE                                                  &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE
+            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ORANGE &ug YELLOW &ug ___ &ug ___ &ug ___ &ug BLUE
+            &ug ___ &ug ___ &ug ORANGE &ug YELLOW &ug ORANGE &ug ___                                                  &ug YELLOW &ug ___ &ug YELLOW &ug ___ &ug ___ &ug ___
+            &ug ___ &ug ___ &ug YELLOW &ug YELLOW &ug YELLOW &ug ___                                                  &ug ORANGE &ug YELLOW &ug ___ &ug ___ &ug ___ &ug ___
+                            &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___
+                                                    &ug ___ &ug ___ &ug ___                  &ug ___ &ug ___ &ug ___
+            >;
+    };
 
-    keypad {
+    keypad_numlock_on {
+        layer-id = <LAYER_KeypadNumOn>;
         bindings = <
             &ug ___ &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE                                                  &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE
             &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug GREEN &ug GREEN &ug GREEN &ug ___ &ug ___ &ug BLUE
@@ -241,10 +263,10 @@
                             &ug ___ &ug ___ &ug ___                                                                  &ug GREEN &ug ___ &ug ___
                                                     &ug ___ &ug ___ &ug ___                  &ug ___ &ug ___ &ug ___
             >;
-        layer-id = <LAYER_KeypadNumOn>;
     };
 
     symnav {
+        layer-id = <LAYER_SymbolNav>;
         bindings = <
             &ug ___ &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE                                                  &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE
             &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug BLUE
@@ -253,7 +275,6 @@
                             &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___
                                                     &ug ___ &ug ___ &ug ___                  &ug ___ &ug ___ &ug ___
             >;
-        layer-id = <LAYER_SymbolNav>;
     };
 };
 
@@ -466,9 +487,15 @@ behaviors {
         };
 
         keypad_numlock_off {
-            if-layers = <LAYER_Keypad LAYER_NumOff>;
+            if-layers = <LAYER_Keypad LAYER_NumSwitch>;
             then-layer = <LAYER_KeypadNumOff>;
         };
+
+        base_rainbow_toggle {
+            if-layers = <LAYER_Base LAYER_BaseRainbowSwitch>;
+            then-layer = <LAYER_BaseRainbow>;
+        };
+
     };
 };
 
@@ -489,7 +516,6 @@ behaviors {
 / {
     keymap {
         compatible = "zmk,keymap";
-
 // 0
         layer_Base {
             bindings = <
@@ -503,11 +529,26 @@ behaviors {
         };
 
 // 1
+LAYER_BaseRainbowSwitch {
+    bindings = < EMPTY_KEYMAP >;
+};
+
+// 2
+layer_NumSwitch {
+    bindings = < EMPTY_KEYMAP >;
+};
+
+// 3
+LAYER_BaseRainbow {
+    bindings = < EMPTY_KEYMAP >;
+};
+
+// 4
         layer_Keypad {
             bindings = <
 &none &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                           &kp F6     &kp F7  &kp F8            &kp F9             &kp F10               &kp F11
 &trans &none  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LS(LC(V))       &none      &none   &none      &kp KP_MINUS        &kp KP_SLASH               &kp F12
-&trans  &kp LC(Y)   &kp HOME &kp UP &kp END &kp PG_UP              &none      &none   &none       &kp KP_PLUS     &kp KP_MULTIPLY  &tog LAYER_NumOff
+&trans  &kp LC(Y)   &kp HOME &kp UP &kp END &kp PG_UP              &none      &none   &none       &kp KP_PLUS     &kp KP_MULTIPLY  &tog LAYER_NumSwitch
 &magic LAYER_Magic 0  &kp LC(Z)   &kp LEFT   &kp DOWN  &kp RIGHT   &kp PG_DN  &none   &none       &none      &kp KP_ENTER           &kp EQUAL      &to LAYER_Base
                                       &none     &trans     &trans                   &none       &none          &kp BSPC
                                                 &mo LAYER_SymbolNav  &trans  &trans  &trans  &trans  &none
@@ -530,7 +571,7 @@ behaviors {
         layer_Magic {
             bindings = <
  &bt BT_CLR   &kp C_BRI_DN    &kp C_BRI_UP    &kp C_PREV      &kp C_NEXT      &kp C_PP            &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none &none &bt BT_CLR_ALL
- &bootloader  &rgb_ug RGB_SPI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG     &none      &none        &none        &none &none &bootloader
+ &bootloader  &rgb_ug RGB_SPI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG     &tog LAYER_BaseRainbowSwitch      &none        &none        &none &none &bootloader
  &sys_reset   &rgb_ug RGB_SPD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF     &none      &none        &none        &none &none &sys_reset
  &none        &none           &bt_0           &bt_1           &bt_2           &bt_3               &none      &none        &none        &none &none &to LAYER_Factory
                                                        &out OUT_USB &none           &none           &none           &none           &none
@@ -575,6 +616,30 @@ layer_NumOff {
 };
 
 // 7
+LAYER_BaseRainbow {
+    bindings = <
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+                    &trans  &trans  &trans                                                                    &trans  &trans  &trans
+                                            &trans  &trans  &trans  &trans  &trans  &trans
+    >;
+};
+
+// 8
+LAYER_BaseRainbowSwitch {
+    bindings = <
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
+                    &trans  &trans  &trans                                                                    &trans  &trans  &trans
+                                            &trans  &trans  &trans  &trans  &trans  &trans
+    >;
+};
+
+// 9
         layer_Factory {
             bindings = <
  &kp N0  &kp N4  &kp N8  &kp N3  &kp N8  &kp N3                                                  &kp N3  &kp N8  &kp N3  &kp N8  &kp N4  &kp N0
