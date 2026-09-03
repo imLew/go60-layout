@@ -206,27 +206,54 @@
 #include <dt-bindings/zmk/rgb_colors.h>
 
 &{/underglow-layer} {
+
     base {
-        bindings = <
-            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
-            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
-            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
-            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
-                            &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___
-                                                    &ug ___ &ug ___ &ug ___                  &ug ___ &ug ___ &ug ___
-            >;
         layer-id = <LAYER_Base>;
-    };
-    num {
         bindings = <
-            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
-            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug RED &ug RED &ug RED &ug ___ &ug ___ &ug ___
-            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug RED &ug RED &ug RED &ug ___ &ug ___ &ug ___
-            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug RED &ug RED &ug RED &ug ___ &ug ___ &ug ___
-                            &ug ___ &ug ___ &ug ___                                                                  &ug RED &ug ___ &ug ___
+    &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF
+    &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF
+    &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF
+    &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF
+                                &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00                                &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF
+                                              &ug 0x00FF1F  &ug 0x00FF34  &ug 0x00FF4A    &ug 0x00FF60  &ug 0x00FF75  &ug 0x00FF8B
+        >;
+    };
+
+    /* base { */
+    /*     bindings = < */
+    /*         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ */
+    /*         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ */
+    /*         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ */
+    /*         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ */
+    /*                         &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___ */
+    /*                                                 &ug ___ &ug ___ &ug ___                  &ug ___ &ug ___ &ug ___ */
+    /*         >; */
+    /* lower { */
+    /*     layer-id = <LAYER_Base>; */
+    /* }; */
+
+    keypad {
+        bindings = <
+            &ug ___ &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE                                                  &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE
+            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug GREEN &ug GREEN &ug GREEN &ug ___ &ug ___ &ug BLUE
+            &ug ___ &ug ___ &ug ORANGE &ug YELLOW &ug ORANGE &ug ___                                                  &ug GREEN &ug GREEN &ug GREEN &ug ___ &ug ___ &ug ___
+            &ug ___ &ug ___ &ug YELLOW &ug YELLOW &ug YELLOW &ug ___                                                  &ug GREEN &ug GREEN &ug GREEN &ug ___ &ug ___ &ug ___
+                            &ug ___ &ug ___ &ug ___                                                                  &ug GREEN &ug ___ &ug ___
                                                     &ug ___ &ug ___ &ug ___                  &ug ___ &ug ___ &ug ___
             >;
         layer-id = <LAYER_KeypadNumOn>;
+    };
+
+    symnav {
+        bindings = <
+            &ug ___ &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE                                                  &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE &ug BLUE
+            &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug BLUE
+            &ug ___ &ug ___ &ug ORANGE &ug YELLOW &ug ORANGE &ug ___                                                  &ug YELLOW &ug YELLOW &ug YELLOW &ug YELLOW &ug ___ &ug TEAL
+            &ug ___ &ug ___ &ug YELLOW &ug YELLOW &ug YELLOW &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                            &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___
+                                                    &ug ___ &ug ___ &ug ___                  &ug ___ &ug ___ &ug ___
+            >;
+        layer-id = <LAYER_SymbolNav>;
     };
 };
 
