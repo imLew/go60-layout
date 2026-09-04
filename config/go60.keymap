@@ -546,28 +546,28 @@ LAYER_BaseRainbow {
 // 4
         layer_Keypad {
             bindings = <
-&none &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                           &kp F6     &kp F7  &kp F8            &kp F9             &kp F10               &kp F11
-&trans &none  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LS(LC(V))       &none      &none   &none      &kp KP_MINUS        &kp KP_SLASH               &kp F12
-&trans  &kp LC(Y)   &kp HOME &kp UP &kp END &kp PG_UP              &none      &none   &none       &kp KP_PLUS     &kp KP_MULTIPLY  &tog LAYER_NumSwitch
-&magic LAYER_Magic 0  &kp LC(Z)   &kp LEFT   &kp DOWN  &kp RIGHT   &kp PG_DN  &none   &none       &none      &kp KP_ENTER           &kp EQUAL      &to LAYER_Base
+&none &kp F1 &kp F2 &kp F3 &kp F4 &kp F5                                          &kp F6  &kp F7  &kp F8            &kp F9             &kp F10               &kp F11
+&trans &none  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LS(LC(V))                      &none   &none   &none      &kp KP_MINUS        &kp KP_SLASH               &kp F12
+&trans  &hml LGUI LC(Y)  &hml LALT HOME &hml LSHFT UP &hml LCTRL END &kp PG_UP    &none   &kp RCTRL   &kp RSHFT   &hmr LALT KP_PLUS &hmr RGUI KP_MULTIPLY  &tog LAYER_NumSwitch
+&magic LAYER_Magic 0  &kp LC(Z)   &kp LEFT   &kp DOWN  &kp RIGHT   &kp PG_DN      &none   &none   &none      &kp KP_ENTER           &kp EQUAL      &to LAYER_Base
                                       &none     &trans     &trans                   &none       &none          &kp BSPC
                                                 &mo LAYER_SymbolNav  &trans  &trans  &trans  &trans  &none
             >;
         };
 
-// 2
+// 5
         layer_SymbolNav {
             bindings = <
               &kp INS      &kp F1    &kp F2    &kp F3        &kp F4        &kp F5  &kp F6      &kp F7           &kp F8         &kp F9          &kp F10    &kp F11
            &kp LS(N6)  &kp LS(N1)  &kp LBKT  &kp RBKT  &kp LS(LBKT)  &kp LS(RBKT)  &kp LS(N9)  &kp LS(N0)       &kp LS(N4)     &kp LS(N5)        &kp K_APP    &kp F12
-           &kp LS(N3)  &kp LS(N2)  &kp HOME    &kp UP       &kp END     &kp PG_UP  &kp LEFT    &kp DOWN           &kp UP      &kp RIGHT  &kp PAUSE_BREAK  &kp PSCRN
+           &kp LS(N3)  &hml LGUI LS(N2)  &hml LALT HOME &hml LSHFT UP &hml LCTRL END &kp PG_UP    &kp LEFT &hmr RCTRL DOWN &hmr RSHFT UP &hmr LALT RIGHT &hmr RGUI PAUSE_BREAK  &kp PSCRN
  &magic LAYER_Magic 0    &kp CAPS  &kp LEFT  &kp DOWN     &kp RIGHT     &kp PG_DN  &kp LS(N7)  &kp LS(N8)    &kp LS(MINUS)  &kp LS(EQUAL)        &kp LSHFT  &kp LCTRL
                                    &kp SLCK    &trans        &trans                &trans  &kp LC(LS(TAB))    &kp LC(TAB)
                                                                                    &to LAYER_Base  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
-// 3
+// 6
         layer_Magic {
             bindings = <
  &bt BT_CLR   &kp C_BRI_DN    &kp C_BRI_UP    &kp C_PREV      &kp C_NEXT      &kp C_PP            &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none &none &bt BT_CLR_ALL
@@ -579,63 +579,27 @@ LAYER_BaseRainbow {
             >;
         };
 
-// 4
+// 7
 layer_KeypadNumOn {
     bindings = <
     &trans  &trans  &trans  &trans  &trans  &trans                                                      &trans     &trans     &trans  &trans  &trans  &trans
     &trans  &trans  &trans  &trans  &trans  &trans                                                   &kp N7  &kp N8  &kp N9  &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans                                                   &kp N4  &kp N5  &kp N6  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                   &kp N4  &hmr RCTRL N5  &hmr RSHFT N6  &trans  &trans  &trans
     &trans  &trans  &trans  &trans  &trans  &trans                                                   &kp N1  &kp N2  &kp N3  &trans  &trans  &trans
                     &trans  &trans  &trans                                                                      &kp N0  &kp DOT  &trans
                                             &trans  &trans  &trans  &trans  &trans  &kp N0
     >;
 };
 
-// 5
+// 8
 layer_KeypadNumOff {
     bindings = <
     &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans     &trans     &trans  &trans  &trans  &trans
     &trans  &trans  &trans  &trans  &trans  &trans                                                  &kp HOME     &kp UP  &kp PG_UP  &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans                                                  &kp LEFT      &none  &kp RIGHT  &trans  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans                                                  &kp LEFT      &kp RCTRL  &hmr RSHFT RIGHT  &trans  &trans  &trans
     &trans  &trans  &trans  &trans  &trans  &trans                                                   &kp END   &kp DOWN  &kp PG_DN  &trans  &trans  &trans
                     &trans  &trans  &trans                                                                       &kp INS    &kp DEL  &trans
                                             &trans  &trans  &trans  &trans  &trans  &kp INS
-    >;
-};
-
-// 6
-layer_NumOff {
-    bindings = <
-    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-                    &trans  &trans  &trans                                                                    &trans  &trans  &trans
-                                            &trans  &trans  &trans  &trans  &trans  &trans
-    >;
-};
-
-// 7
-LAYER_BaseRainbow {
-    bindings = <
-    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-                    &trans  &trans  &trans                                                                    &trans  &trans  &trans
-                                            &trans  &trans  &trans  &trans  &trans  &trans
-    >;
-};
-
-// 8
-LAYER_BaseRainbowSwitch {
-    bindings = <
-    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-                    &trans  &trans  &trans                                                                    &trans  &trans  &trans
-                                            &trans  &trans  &trans  &trans  &trans  &trans
     >;
 };
 
