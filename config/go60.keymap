@@ -540,7 +540,7 @@ behaviors {
               &EscCW               &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G        &kp H     &hmr RCTRL J &hmr RSHFT K  &hmr LALT L   &hmr RGUI SEMI  &kp SQT
               &magic LAYER_Magic 0 &kp Z        &kp X        &kp C         &kp V   &kp B              &kp N     &kp M        &kp COMMA   &kp DOT  &kp FSLH  &td_LAYER_Keypad
                                                 &caps_word    &kp DEL       &kp BSPC                             &kp LGUI   &kp LBKT  &kp RBKT
-                                                    &lt LAYER_SymbolNav ESC  &spc_tab &kp TAB       &kp RET &bspc_del &mt RALT DEL
+                                                    &lt LAYER_SymbolNav ESC  &kp SPACE &kp TAB       &kp RET &bspc_del &mt RALT DEL
             >;
         };
 
