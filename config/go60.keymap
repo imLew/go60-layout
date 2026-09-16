@@ -230,7 +230,7 @@
     };
 
     base_rainbow {
-        layer-id = <LAYER_BaseRainbowSwitch>;
+        layer-id = <LAYER_BaseRainbow>;
         bindings = <
     &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF
     &ug 0xFF0000  &ug 0xFF6C00  &ug 0xFFD800  &ug 0xB9FF00  &ug 0x4DFF00  &ug 0x00FF1F    &ug 0x00FF8B  &ug 0x00FFF7  &ug 0x009BFF  &ug 0x002EFF  &ug 0x3E00FF  &ug 0xAA00FF
@@ -507,10 +507,10 @@ behaviors {
             then-layer = <LAYER_KeypadNumOff>;
         };
 
-        base_rainbow_toggle {
-            if-layers = <LAYER_Base LAYER_BaseRainbowSwitch>;
-            then-layer = <LAYER_BaseRainbow>;
-        };
+        /* base_rainbow_toggle { */
+        /*     if-layers = <LAYER_Base LAYER_BaseRainbowSwitch>; */
+        /*     then-layer = <LAYER_BaseRainbow>; */
+        /* }; */
 
     };
 };
@@ -587,7 +587,7 @@ LAYER_BaseRainbow {
         layer_Magic {
             bindings = <
  &bt BT_CLR   &kp C_BRI_DN    &kp C_BRI_UP    &kp C_PREV      &kp C_NEXT      &kp C_PP            &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none &none &bt BT_CLR_ALL
- &bootloader  &rgb_ug RGB_SPI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG     &tog LAYER_BaseRainbowSwitch      &none        &none        &none &none &bootloader
+ &bootloader  &rgb_ug RGB_SPI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG     &tog LAYER_BaseRainbow      &none        &none        &none &none &bootloader
  &sys_reset   &rgb_ug RGB_SPD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF     &none      &none        &none        &none &none &sys_reset
  &none        &none           &bt_0           &bt_1           &bt_2           &bt_3               &none      &none        &none        &none &none &to LAYER_Factory
                                                        &out OUT_USB &none           &none           &none           &none           &none

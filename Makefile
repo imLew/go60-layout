@@ -1,3 +1,7 @@
+.PHONY: all compile flash
+
+all: compile flash
+
 compile:
 	./compile.sh
 
