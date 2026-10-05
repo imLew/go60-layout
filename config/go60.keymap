@@ -542,11 +542,11 @@ behaviors {
 // 0
         layer_Base {
             bindings = <
-              &kp EQUAL            &kp N1       &kp N2       &kp N3        &kp N4  &kp N5             &kp N6    &kp N7       &kp N8    &kp N9    &kp N0         &kp MINUS
+              &none                &kp N1       &kp N2       &kp N3        &kp N4  &kp N5             &kp N6    &kp N7       &kp N8    &kp N9    &kp N0         &none
               &kp GRAVE            &kp Q        &kp W        &kp E         &kp R   &kp T              &kp Y     &kp U        &kp I     &kp O     &kp P          &kp BSLH
-              &EscCW               &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G        &kp H     &hmr RCTRL J &hmr RSHFT K  &hmr LALT L   &hmr RGUI SEMI  &kp SQT
+              &kp MINUS               &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G        &kp H     &hmr RCTRL J &hmr RSHFT K  &hmr LALT L   &hmr RGUI SEMI  &kp SQT
               &magic LAYER_Magic 0 &kp Z        &kp X        &kp C         &kp V   &kp B              &kp N     &kp M        &kp COMMA   &kp DOT  &kp FSLH  &td_LAYER_Keypad
-                                                &caps_word    &kp DEL       &kp BSPC                             &kp LGUI   &kp LBKT  &kp RBKT
+                                                &caps_word    &kp DEL       &kp MINUS                             &kp EQUAL   &kp LBKT  &kp RBKT
                                                     &lt LAYER_SymbolNav ESC  &kp SPACE &kp TAB       &kp RET &kp BACKSPACE &mt RALT DEL
             >;
         };
@@ -588,12 +588,12 @@ layer_Game {
 // 5
         layer_SymbolNav {
             bindings = <
-           &kp INS      &kp F1    &kp F2    &kp F3        &kp F4        &kp F5  &kp F6            &kp F7           &kp F8         &kp F9          &kp F10    &kp F11
-           &kp LS(N6)  &kp LS(N1)  &kp LBKT  &kp RBKT  &kp LS(LBKT)  &kp LS(RBKT)  &kp LS(N9)     &kp LS(N0)       &kp LS(N4)     &kp LS(N5)        &kp K_APP    &kp F12
+           &kp INS      &kp F1    &kp F2    &kp F3        &kp F4        &kp F5                    &kp F6 &kp F7           &kp F8         &kp F9          &kp F10    &kp F11
+           &kp LS(N6)  &kp LS(N1)  &kp LBKT  &kp RBKT  &kp LS(LBKT)  &kp LS(RBKT)                 &kp LS(N9)     &kp LS(N0)       &kp LS(N4)     &kp LS(N5)        &kp K_APP    &kp F12
            &kp LS(N3)  &hml LGUI LS(N2)  &hml LALT HOME &hml LSHFT UP &hml LCTRL END &kp PG_UP    &kp LEFT &hmr RCTRL DOWN &hmr RSHFT UP &hmr LALT RIGHT &hmr RGUI PAUSE_BREAK  &kp PSCRN
            &magic LAYER_Magic 0    &kp CAPS  &kp LEFT  &kp DOWN     &kp RIGHT     &kp PG_DN       &kp LS(N7)  &kp LS(N8)    &kp LS(MINUS)  &kp LS(EQUAL)        &kp LSHFT  &kp LCTRL
                                    &kp SLCK    &trans        &trans                                         &trans  &kp LC(LS(TAB))    &kp LC(TAB)
-                                                                  &to LAYER_Base  &trans  &trans  &trans  &trans  &trans
+                                                              &to LAYER_Base  &trans  &trans      &trans  &trans  &trans
             >;
         };
 
