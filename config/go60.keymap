@@ -443,6 +443,14 @@
     };
 };
 
+#define TD_ALT(name, hrm, key) \
+name: name { \
+    compatible = "zmk,behavior-tap-dance"; \
+    #binding-cells = <0>; \
+    tapping-term-ms = <200>; \
+    bindings = <&hrm LALT key>, <&hrm RALT key>; \
+};
+
 / {
 behaviors {
 
@@ -493,9 +501,11 @@ behaviors {
         compatible = "zmk,behavior-mod-morph";
         #binding-cells = <0>;
         bindings = <&kp BACKSPACE>, <&kp DELETE>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-        keep-mods = <(MOD_RSFT)>;
+        mods = <(MOD_RSFT)>;
     };
+
+    TD_ALT(td_alt_s, hmr, S)
+    TD_ALT(td_alt_l, hml, L)
 
 };
 };
@@ -544,10 +554,10 @@ behaviors {
             bindings = <
               &none                &kp N1       &kp N2       &kp N3        &kp N4  &kp N5             &kp N6    &kp N7       &kp N8    &kp N9    &kp N0         &none
               &kp GRAVE            &kp Q        &kp W        &kp E         &kp R   &kp T              &kp Y     &kp U        &kp I     &kp O     &kp P          &kp BSLH
-              &kp MINUS               &hml LGUI A  &hml LALT S  &hml LSHFT D  &hml LCTRL F  &kp G        &kp H     &hmr RCTRL J &hmr RSHFT K  &hmr LALT L   &hmr RGUI SEMI  &kp SQT
+              &kp MINUS               &hml LGUI A  &td_alt_s  &hml LSHFT D  &hml LCTRL F  &kp G        &kp H     &hmr RCTRL J &hmr RSHFT K  &td_alt_l   &hmr RGUI SEMI  &kp SQT
               &magic LAYER_Magic 0 &kp Z        &kp X        &kp C         &kp V   &kp B              &kp N     &kp M        &kp COMMA   &kp DOT  &kp FSLH  &td_LAYER_Keypad
                                                 &caps_word    &kp DEL       &kp MINUS                             &kp EQUAL   &kp LBKT  &kp RBKT
-                                                    &lt LAYER_SymbolNav ESC  &kp SPACE &kp TAB       &kp RET &kp BACKSPACE &mt RALT DEL
+                                                    &lt LAYER_SymbolNav ESC  &kp SPACE &kp TAB       &kp RET &bspc_del &mt RALT DEL
             >;
         };
 
