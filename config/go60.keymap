@@ -202,6 +202,15 @@
             map = <INPUT_BTN_0 INPUT_BTN_1>;
         };
 
+        zip_scroll_to_volume: zip_scroll_to_volume {
+            compatible = "zmk,input-processor-behaviors";
+            #input-processor-cells = <0>;
+            evt-type = <INPUT_EV_REL>;
+            x-codes = <INPUT_REL_HWHEEL>;
+            y-codes = <INPUT_REL_WHEEL>;
+            bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
+        };
+
         zip_click_to_middle_click_mapper: zip_click_to_middle_click_mapper {
             compatible = "zmk,input-processor-code-mapper";
             #input-processor-cells = <0>;
@@ -289,6 +298,10 @@
 
 &cirque_lh_listener {
     input-processors = <&zip_xy_scaler 1 8>, <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>, <&zip_xy_to_scroll_mapper>, <&zip_click_to_right_click_mapper>;
+    layer_SymbolNav {
+        layers = <LAYER_SymbolNav>;
+        input-processors = <&zip_xy_scaler 1 8>, <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>, <&zip_xy_to_scroll_mapper>, <&zip_scroll_to_volume>, <&zip_click_to_right_click_mapper>;
+    };
     layer_Factory {
         layers = <LAYER_Factory>;
         input-processors = <&zip_xy_scaler 3 1>;
